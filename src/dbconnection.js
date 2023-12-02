@@ -1,20 +1,20 @@
 const fs = require('fs');
-const knex = require('knex');
+const knex = require("knex");
 
-async function connectMysql() {
-    const mysqlPassword = await fs.promises.readFile('/run/secrets/mysql_password');
+async function connectMysql(){
+    const mysqlPassword = await fs.promises.readFile('/run/secrets/MYSQL_PASSWORD'); 
     const db = knex({
         client: 'mysql2',
         connection: {
-            host: 'mysql', // docker-compose service
-            user: 'user_glm',
-            password: mysqlPassword,
-            database: 'GMC'
+            host : "mysql", //Nombre del docker-compose service
+            user : "user_biblioteca",
+            password : mysqlPassword,
+            database : "biblioteca"
         }
     });
-    
     return db;
 }
+
 
 module.exports = {
     connectMysql
