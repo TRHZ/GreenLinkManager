@@ -1,6 +1,6 @@
-#Ignorar dependencias de Node.js
+# Ignorar dependencias de Node.js
 /node_modules
 
-#Ignnorar todo en .secrets para mantener contraseñas seguras
+# Ignorar todo en /.secrets para mantener contraseñas seguras.
 /.secrets/*
 !/.secrets/.gitkeep

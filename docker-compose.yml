@@ -1,4 +1,4 @@
-version: "3"
+version: '3'
 services:
   web-service:
     build: .
@@ -6,11 +6,10 @@ services:
       - .:/app
       - /app/node_modules
     ports:
-      - 3000:80
+      - 3100:80
     secrets:
-      - MYSQL_PASSWORD
-    command: ["npx", "nodemon", "app.js", "-L"]
-    
+      - mysql_password
+    command: ["npm", "run", "debug"]
   mysql:
     image: mysql:8.0.35
     volumes:
@@ -20,17 +19,17 @@ services:
     ports:
       - 3307:3306
     environment:
-      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/MYSQL_ROOT_PASSWORD
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
       MYSQL_DATABASE: biblioteca
       MYSQL_USER: user_biblioteca
-      MYSQL_PASSWORD_FILE: /run/secrets/MYSQL_PASSWORD
+      MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
     secrets:
-      - MYSQL_ROOT_PASSWORD
-      - MYSQL_PASSWORD
+      - mysql_root_password
+      - mysql_password
 volumes:
   mysql_data:
 secrets:
-  MYSQL_ROOT_PASSWORD:
-    file: ./.secrets/MYSQL_ROOT_PASSWORD.txt
-  MYSQL_PASSWORD:
-    file: ./.secrets/MYSQL_PASSWORD.txt
+  mysql_root_password:
+    file: ./.secrets/mysql_root_password.txt
+  mysql_password:
+    file: ./.secrets/mysql_password.txt
