@@ -1,6 +1,6 @@
 # API RESTful con Node.js
 
-Proyecto de demostración para clases de desarrollo de APIs utilizando Node.js,
+Proyecto de GreenLink Manager utilizando Node.js,
 con implementación en contenedores de Docker.
 
 ## Tabla de contenido
@@ -23,13 +23,13 @@ Asegúrate de tener instalado y configurado Docker antes de comenzar.
 1. Clonar el repositorio en la máquina local:
    
    ```sh
-   git clone https://github.com/francerz/node-restful.git
+   git clone https://github.com/TRHZ/GreenLinkManager.git
    ```
 
 2. Navegar al directorio del proyecto:
    
    ```sh
-   cd node-restful
+   cd GreenLinkManager
    ```
 
 3. Ejecutar el siguiente comando para iniciar los contenedores:

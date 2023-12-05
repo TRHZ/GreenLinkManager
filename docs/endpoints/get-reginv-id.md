@@ -1,4 +1,4 @@
-# Endpoint: `GET /temas/{id}`
+# Endpoint: `GET /user/{id}`
 
 Permite obtener información detallada sobre un tema específico mediante su identificador único.
 
@@ -7,14 +7,14 @@ Permite obtener información detallada sobre un tema específico mediante su ide
 
 ## Ejemplo de Solicitud
 ```http
-GET /temas/123
+GET /product/1
 ```
 
 ## Respuesta Exitosa (Código 200 OK)
 ```json
 {
-  "id_tema": 123,
-  "nombre": "Programación",
+  "id_product": 1,
+  "nombre": "Manzana",
 }
 ```
 
@@ -43,4 +43,4 @@ GET /temas/123
 - Asegurate de incluir un ID válido en la solicitud para obtener la información
   sobre un tema en específico.
 - Para consultar más detalle sobre los libros relacionados con el tema consultar
-  la documentación del endpoint [`/temas/{id}/libros`](./get-temas-id-libros.md).
+  la documentación del endpoint [`/reginv/{id}/product`](./get-reginv-id-product.md).

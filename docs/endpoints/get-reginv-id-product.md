@@ -1,4 +1,4 @@
-# Endpoint: `GET /temas/{id}/libros`
+# Endpoint: `GET /user/{id}/product`
 
 Permite obtener información sobre los libros relacionados a un tema mediante su
 identificador único.
@@ -8,19 +8,19 @@ identificador único.
 
 ## Ejemplo de Solicitud
 ```http
-GET /temas/123/libros
+GET /product/1/user
 ```
 
 ## Respuesta Exitosa (Código 200 OK)
 ```json
 [
   {
-    "id_libro": 234,
-    "titulo": "Fundamentos de Programación"
+    "id_producto": 1,
+    "titulo": "Manzana"
   },
   {
-    "id_libro": 345,
-    "titulo": "Introducción a la Programación Orientada a Objetos"
+    "id_producto": 2,
+    "titulo": "Zanahorias"
   }
 ]
 ```
