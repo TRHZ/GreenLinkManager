@@ -14,6 +14,14 @@ app.get('/', function (req, res) {
     res.send('Lets goo');
 });
 
+app.get('/user', UserController.indexGet);
+app.get('/user/:id([0-9]+)', UserController.itemGet);
+app.post('/user', UserController.indexPost);
+app.put('/user/:id([0-9]+)', UserController.itemPut);
+app.patch('/user/:id([0-9]+)', UserController.itemPatch);
+
+
+
 app.get('/product',ProductController.indexGet);
 app.get('/product/:id([1-2]+)', ProductController.itemGet);
 app.get('/product/:id([1-2]+)/user', ProductController.itemGet);
