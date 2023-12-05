@@ -20,8 +20,8 @@ services:
       - 3307:3306
     environment:
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/mysql_root_password
-      MYSQL_DATABASE: biblioteca
-      MYSQL_USER: user_biblioteca
+      MYSQL_DATABASE: greenlink
+      MYSQL_USER: user_greenlink
       MYSQL_PASSWORD_FILE: /run/secrets/mysql_password
     secrets:
       - mysql_root_password
