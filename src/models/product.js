@@ -1,16 +1,16 @@
 const { connectMysql } = require('../dbconnection');
 
-class LibrosModel {
+class ProductModel {
     static async consultar() {
         let db = await connectMysql();
-        let query = db('libros');
+        let query = db('productos'); // Cambiado de 'product' a 'producto'
         return await query;
     }
 
     static async consultarPorId(id) {
         let db = await connectMysql();
-        return await db('libros').where('id_libro', id);
+        return await db('productos').where('id_producto', id); // Cambiado de 'productos' a 'producto'
     }
 }
 
-module.exports = LibrosModel;
+module.exports = ProductModel;

@@ -1,59 +1,56 @@
-CREATE DATABASE IF NOT EXISTS biblioteca;
+-- Crear la base de datos si no existe
+CREATE DATABASE IF NOT EXISTS greenlink;
 
-USE biblioteca;
+-- Usar la base de datos
+USE greenlink;
 
-CREATE TABLE autores (
-    id_autor    INTEGER         NOT NULL    AUTO_INCREMENT,
-    nombre      VARCHAR(128)    NOT NULL,
-    apellidos   VARCHAR(255)    NOT NULL,
-    PRIMARY KEY (id_autor)
+-- Crear tabla para los productos
+CREATE TABLE productos (
+    id_producto         INTEGER         NOT NULL AUTO_INCREMENT,
+    nombre              VARCHAR(255)    NOT NULL,
+    tipo                VARCHAR(50)     NOT NULL,
+    cantidad            INTEGER         NOT NULL,
+    unidad_medida       VARCHAR(20)     NOT NULL,
+    descripcion         TEXT,
+    nivel_critico       INTEGER,
+    PRIMARY KEY (id_producto)
 );
 
-CREATE TABLE editoriales (
-    id_editorial    INTEGER             NOT NULL    AUTO_INCREMENT,
-    nombre          VARCHAR(255)        NOT NULL,
-    PRIMARY KEY     (id_editorial)
+-- Crear tabla para usuarios
+CREATE TABLE usuarios (
+    id_usuario          INTEGER         NOT NULL AUTO_INCREMENT,
+    nombre              VARCHAR(100)    NOT NULL,
+    apellido            VARCHAR(100)    NOT NULL,
+    nombre_usuario      VARCHAR(50)     NOT NULL,
+    correo_electronico  VARCHAR(255)    NOT NULL,
+    contrasena          VARCHAR(255)    NOT NULL,
+    PRIMARY KEY (id_usuario)
 );
 
-CREATE TABLE temas (
-    id_tema         INTEGER             NOT NULL    AUTO_INCREMENT,
-    nombre          VARCHAR(255)        NOT NULL,
-    PRIMARY KEY     (id_tema)
+-- Crear tabla para registros de inventario
+CREATE TABLE registros_inventario (
+    id_registro         INTEGER         NOT NULL AUTO_INCREMENT,
+    id_producto         INTEGER         NOT NULL,
+    id_usuario          INTEGER         NOT NULL,
+    fecha_registro      TIMESTAMP       NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id_registro),
+    FOREIGN KEY (id_producto) REFERENCES productos(id_producto),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario)
 );
 
-CREATE TABLE libros (
-    id_libro        INTEGER             NOT NULL    AUTO_INCREMENT,
-    titulo          VARCHAR(255)        NOT NULL,
-    edicion         VARCHAR(32)         NOT NULL,
-    fk_id_autor     INTEGER             NOT NULL,
-    fk_id_editorial INTEGER             NOT NULL,
-    fk_id_tema      INTEGER             NOT NULL,
-    PRIMARY KEY     (id_libro),
-    FOREIGN KEY     (fk_id_autor)       REFERENCES autores(id_autor),
-    FOREIGN KEY     (fk_id_editorial)   REFERENCES editoriales(id_editorial),
-    FOREIGN KEY     (fk_id_tema)        REFERENCES temas(id_tema)
-);
+-- Insertar datos en la tabla de productos
+INSERT INTO productos (nombre, tipo, cantidad, unidad_medida, descripcion, nivel_critico) VALUES
+    ('Manzanas', 'Fruta', 1000, 'Unidad', 'Variedad: Fuji', 200),
+    ('Zanahorias', 'Verdura', 500, 'Kilogramo', 'Origen: Local', 100),
+    ('Cajas de Embalaje', 'Material de Trabajo', 200, 'Caja', 'Dimensiones: 30x30x20 cm', 50);
 
--- Insertar datos en la tabla de autores
-INSERT INTO autores (nombre, apellidos) VALUES
-    ('Gabriel', 'García Márquez'),
-    ('Jane', 'Austen'),
-    ('George', 'Orwell');
+-- Insertar datos en la tabla de usuarios
+INSERT INTO usuarios (nombre, apellido, nombre_usuario, correo_electronico, contrasena) VALUES
+    ('Juan', 'Perez', 'juan123', 'juan.perez@email.com', 'contraseña123'),
+    ('Ana', 'Gomez', 'ana456', 'ana.gomez@email.com', 'contraseña456');
 
--- Insertar datos en la tabla de editoriales
-INSERT INTO editoriales (nombre) VALUES
-    ('Penguin Random House'),
-    ('HarperCollins'),
-    ('Editorial Planeta');
-
--- Insertar datos en la tabla de temas
-INSERT INTO temas (nombre) VALUES
-    ('Ficción'),
-    ('Historia'),
-    ('Ciencia Ficción');
-
--- Insertar datos en la tabla de libros
-INSERT INTO libros (titulo, edicion, fk_id_autor, fk_id_editorial, fk_id_tema) VALUES
-    ('Cien años de soledad', 'Primera Edición', 1, 1, 1),
-    ('Orgullo y prejuicio', 'Segunda Edición', 2, 2, 1),
-    ('1984', 'Edición Especial', 3, 3, 3);
+-- Insertar datos en la tabla de registros de inventario
+INSERT INTO registros_inventario (id_producto, id_usuario) VALUES
+    (1, 1),
+    (2, 2),
+    (3, 1);
