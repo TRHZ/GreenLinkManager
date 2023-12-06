@@ -15,7 +15,11 @@ GET /user/1
 {
   "id_usuario": 1,
   "nombre": "Juan",
+  "apellido": "Perez",
+  "nombre_usuario": "juan123",
+  "correo_electronico": "juan.perez@email.com"
 }
+
 ```
 
 ## Respuestas de Errores Posibles
@@ -23,10 +27,11 @@ GET /user/1
 
   ```json
   {
-    "errno": 404,
-    "error": "not_found",
-    "error_description": "No se encontró el tema."
-  }
+  "errno": 404,
+  "error": "not_found",
+  "error_description": "No se encontró el usuario."
+}
+
   ```
 
 - Código 500 Internal Server Error:
@@ -42,5 +47,3 @@ GET /user/1
 
 - Asegurate de incluir un ID válido en la solicitud para obtener la información
   sobre un tema en específico.
-- Para consultar más detalle sobre los productos relacionados con el inventario consultar
-  la documentación del endpoint [`/reginv/{id}/product`](./get-reginv-id-product.md).

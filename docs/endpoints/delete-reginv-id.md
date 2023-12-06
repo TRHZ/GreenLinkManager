@@ -1,22 +1,21 @@
-# Endpoint: `GET /reginv/{id}`
+# Endpoint: `DELETE /reginv/{id}`
 
-Permite obtener información detallada sobre un registro de inventario específico mediante su identificador único.
+Permite eliminar un registro de inventario existente mediante su identificador único.
 
 ## Parámetros de URL
-- `{id}` (obligatorio): Identificador único del registro de inventario que se desea recuperar.
+`{id}` (obligatorio): Identificador único del registro de inventario que se desea eliminar.
+
 
 ## Ejemplo de Solicitud
 ```http
-GET /reginv/1
+DELETE /reginv/1
 ```
 
 ## Respuesta Exitosa (Código 200 OK)
 ```json
 {
   "id_registro": 1,
-  "id_producto": 2,
-  "id_usuario": 1,
-  "fecha_registro": "2023-12-06T12:34:56Z"
+  "mensaje": "Registro de inventario eliminado exitosamente."
 }
 
 ```
@@ -31,14 +30,20 @@ GET /reginv/1
   "error_description": "No se encontró el registro de inventario."
   }
 
+
   ```
 
 - Código 500 Internal Server Error:
-  ```json
-  {
+ ```json
+{
   "errno": 500,
   "error": "internal_error",
   "error_description": "Ocurrió un problema para procesar la solicitud"
-  }
+}
 
-  ``` 
+```
+
+## Notas Adicionales
+
+- Asegurate de incluir un datos válido en la solicitud para obtener la información
+  sobre un tema en específico.

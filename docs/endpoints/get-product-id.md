@@ -1,9 +1,9 @@
 # Endpoint: `GET /product/{id}`
 
-Permite obtener información detallada sobre un registro específico mediante su identificador único.
+Permite obtener información detallada sobre un producto específico mediante su identificador único.
 
 ## Parámetros de URL
-- `{id}` (obligatorio): Identificador único del tema que se desea recuperar.
+- `{id}` (obligatorio): Identificador único del producto que se desea recuperar.
 
 ## Ejemplo de Solicitud
 ```http
@@ -30,7 +30,7 @@ GET /product/1
   {
     "errno": 404,
     "error": "not_found",
-    "error_description": "No se encontró el tema."
+    "error_description": "No se encontró el producto."
   }
   ```
 
