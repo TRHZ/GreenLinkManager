@@ -15,6 +15,7 @@ class RegInvController
         res.send(data);
     }
 
+
     /**
      * Recibe una petición para crear un recurso:
      * 
@@ -117,6 +118,25 @@ class RegInvController
             res.status(400).send({ errno: 400, error: 'Bad Request' });
         }
     }
+
+    static async productRegInvGet(req, res) {
+        try {
+            const productId = req.params.id;
+            // Consulta la base de datos para obtener registros de inventario relacionados con el producto
+            const data = await RegInvModel.consultarPorProductoId(productId);
+
+            if (data.length === 0) {
+                res.status(404).send({ errno: 404, error: 'Not found' });
+                return;
+            }
+
+            res.send(data);
+        } catch (error) {
+            console.error(error);
+            res.status(500).send({ errno: 500, error: 'Internal Server Error' });
+        }
+    }
+
 }
 
 module.exports = RegInvController;

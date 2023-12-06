@@ -30,6 +30,12 @@ class RegInvModel
         await db.insert(newData).into('registros_inventario');
         return id;
     }
+
+    static async consultarPorProductoId(idProducto) {
+        let db = await connectMysql();
+        return await db('registros_inventario').where('id_producto', idProducto);
+    }
+    
 }
 
 module.exports = RegInvModel;

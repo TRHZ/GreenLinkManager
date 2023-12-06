@@ -1,6 +1,6 @@
-# Endpoint: `GET /user/{id}/product`
+# Endpoint: `GET /product/{id}/reginv`
 
-Permite obtener información sobre los libros relacionados a un tema mediante su
+Permite obtener información sobre los productos relacionados a un registro mediante su
 identificador único.
 
 ## Parámetros de URL
@@ -8,21 +8,19 @@ identificador único.
 
 ## Ejemplo de Solicitud
 ```http
-GET /product/1/user
+GET /product/1/reginv
 ```
 
 ## Respuesta Exitosa (Código 200 OK)
 ```json
 [
   {
-    "id_producto": 1,
-    "titulo": "Manzana"
-  },
-  {
-    "id_producto": 2,
-    "titulo": "Zanahorias"
+    "id_registro":1,
+    "id_producto":1,
+    "id_usuario":1,
+    "fecha_registro":"2023-12-05T00:19:06.000Z"
   }
-]
+  ]
 ```
 
 ## Respuestas de Errores Posibles
@@ -32,7 +30,7 @@ GET /product/1/user
   {
     "errno": 404,
     "error": "not_found",
-    "error_description": "No se encontraron libros asociados con el tema {id}."
+    "error_description": "No se encontraron productos asociados con el registro {id}."
   }
   ```
 

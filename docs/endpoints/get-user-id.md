@@ -1,22 +1,20 @@
-# Endpoint: `GET /reginv/{id}`
+# Endpoint: `GET /user/{id}`
 
-Permite obtener información detallada sobre un registro específico mediante su identificador único.
+Permite obtener información detallada sobre un usuario específico mediante su identificador único.
 
 ## Parámetros de URL
 - `{id}` (obligatorio): Identificador único del tema que se desea recuperar.
 
 ## Ejemplo de Solicitud
 ```http
-GET /reginv/1
+GET /user/1
 ```
 
 ## Respuesta Exitosa (Código 200 OK)
 ```json
 {
-  "id_registro":1,
-  "id_producto":1,
-  "id_usuario":1,
-  "fecha_registro":"2023-12-05T00:19:06.000Z"
+  "id_usuario": 1,
+  "nombre": "Juan",
 }
 ```
 
@@ -39,3 +37,10 @@ GET /reginv/1
     "error_description": "Ocurrió un problema para procesar la solicitud"
   }
   ``` 
+
+## Notas Adicionales
+
+- Asegurate de incluir un ID válido en la solicitud para obtener la información
+  sobre un tema en específico.
+- Para consultar más detalle sobre los productos relacionados con el inventario consultar
+  la documentación del endpoint [`/reginv/{id}/product`](./get-reginv-id-product.md).

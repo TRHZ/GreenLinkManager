@@ -25,6 +25,7 @@ app.get('/product/:id([0-9]+)', ProductController.itemGet);
 app.post('/product', ProductController.indexPost);
 app.put('/product/:id([0-9]+)', ProductController.itemPut);
 app.patch('/product/:id([0-9]+)', ProductController.itemPatch);
+app.get('/product/:id([0-9]+)/reginv', RegInvController.productRegInvGet);
 
 app.get('/reginv', RegInvController.indexGet);
 app.get('/reginv/:id([0-9]+)', RegInvController.itemGet);

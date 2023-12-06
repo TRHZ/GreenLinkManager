@@ -1,4 +1,4 @@
-# Endpoint: `GET /reginv/{id}`
+# Endpoint: `GET /product/{id}`
 
 Permite obtener información detallada sobre un registro específico mediante su identificador único.
 
@@ -7,16 +7,19 @@ Permite obtener información detallada sobre un registro específico mediante su
 
 ## Ejemplo de Solicitud
 ```http
-GET /reginv/1
+GET /product/1
 ```
 
 ## Respuesta Exitosa (Código 200 OK)
 ```json
 {
-  "id_registro":1,
   "id_producto":1,
-  "id_usuario":1,
-  "fecha_registro":"2023-12-05T00:19:06.000Z"
+  "nombre":"Manzanas",
+  "tipo":"Fruta",
+  "cantidad":1000,
+  "unidad_medida":"Unidad",
+  "descripcion":"Variedad: Fuji",
+  "nivel_critico":200
 }
 ```
 
