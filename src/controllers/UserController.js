@@ -6,7 +6,7 @@ class UserController
      * Recupera una colección de valores de un recurso:
      * 
      * ```http
-     *   GET /temas
+     *   GET /user
      *   Accept: application/json
      * ```
      */
@@ -19,10 +19,10 @@ class UserController
      * Recibe una petición para crear un recurso:
      * 
      * ```http
-     *   POST /temas
+     *   POST /user
      *   Content-Type: application/json
      *
-     *   {"nombre":"Nuevo tema"}
+     *   {"nombre":"Nuevo usuario"}
      * ```
      */
     static async indexPost(req, res) {
@@ -44,7 +44,7 @@ class UserController
      * Recupera el valor de un recurso individual:
      * 
      * ```http
-     *   GET /temas/{id}
+     *   GET /user/{id}
      *   Accept: application/json
      * ```
      */
@@ -62,10 +62,10 @@ class UserController
      * Recibe un petición para sustituir/reemplazar un recurso:
      * 
      * ```http
-     *   PUT /temas/{id}
+     *   PUT /user/{id}
      *   Content-Type: application/json
      *
-     *   {"nombre":"Nombre del tema sustituto"}
+     *   {"nombre":"Nombre del usuario sustituto"}
      * ```
      * 
      * > **NOTA**  
@@ -94,10 +94,10 @@ class UserController
      * Recibe una petición para actualizar parte de un recurso:
      * 
      * ```http
-     *   PATCH /temas/{id}
+     *   PATCH /user/{id}
      *   Content-Type: application/json
      * 
-     *   {"nombre": "Nuevo nombre del tema"}
+     *   {"nombre": "Nuevo nombre del usuario"}
      * ```
      */
     static async itemPatch(req, res) {

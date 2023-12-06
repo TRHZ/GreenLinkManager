@@ -20,16 +20,17 @@ app.post('/user', UserController.indexPost);
 app.put('/user/:id([0-9]+)', UserController.itemPut);
 app.patch('/user/:id([0-9]+)', UserController.itemPatch);
 
+app.get('/product', ProductController.indexGet);
+app.get('/product/:id([0-9]+)', ProductController.itemGet);
+app.post('/product', ProductController.indexPost);
+app.put('/product/:id([0-9]+)', ProductController.itemPut);
+app.patch('/product/:id([0-9]+)', ProductController.itemPatch);
 
-
-app.get('/product',ProductController.indexGet);
-app.get('/product/:id([1-2]+)', ProductController.itemGet);
-app.get('/product/:id([1-2]+)/user', ProductController.itemGet);
-app.get('/user',UserController.indexGet);
-app.get('/user/:id([1-2]+)', UserController.itemGet);
-app.get('/reginv',RegInvController.indexGet);
-app.get('/reginv/:id([1-2]+)', RegInvController.itemGet);
-
+app.get('/reginv', RegInvController.indexGet);
+app.get('/reginv/:id([0-9]+)', RegInvController.itemGet);
+app.post('/reginv', RegInvController.indexPost);
+app.put('/reginv/:id([0-9]+)', RegInvController.itemPut);
+app.patch('/reginv/:id([0-9]+)', RegInvController.itemPatch);
 
 app.listen(puerto, function() {
     console.log("Servidor en espera http://localhost");
