@@ -30,6 +30,11 @@ class ProductModel
         await db.insert(newData).into('productos');
         return id;
     }
+
+    static async eliminar(id) {
+        let db = await connectMysql();
+        return await db('productos').where('id_producto', id).del();
+    }
 }
 
 module.exports = ProductModel;
