@@ -19,6 +19,7 @@ app.get('/user/:id([0-9]+)', UserController.itemGet);
 app.post('/user', UserController.indexPost);
 app.put('/user/:id([0-9]+)', UserController.itemPut);
 app.patch('/user/:id([0-9]+)', UserController.itemPatch);
+app.delete('/user/:id([0-9]+)', UserController.itemDelete);
 
 app.get('/product', ProductController.indexGet);
 app.get('/product/:id([0-9]+)', ProductController.itemGet);
@@ -32,6 +33,7 @@ app.get('/reginv/:id([0-9]+)', RegInvController.itemGet);
 app.post('/reginv', RegInvController.indexPost);
 app.put('/reginv/:id([0-9]+)', RegInvController.itemPut);
 app.patch('/reginv/:id([0-9]+)', RegInvController.itemPatch);
+app.delete('/reginv/:id([0-9]+)', RegInvController.itemDelete);
 
 app.listen(puerto, function() {
     console.log("Servidor en espera http://localhost");

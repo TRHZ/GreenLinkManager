@@ -36,6 +36,10 @@ class RegInvModel
         return await db('registros_inventario').where('id_producto', idProducto);
     }
     
+    static async eliminar(id) {
+        let db = await connectMysql();
+        return await db('registros_inventario').where('id_registro', id).del();
+    }
 }
 
 module.exports = RegInvModel;

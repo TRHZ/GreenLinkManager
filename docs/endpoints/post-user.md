@@ -11,7 +11,7 @@ Permite crear un nuevo usuario.
 
 ## Ejemplo de Solicitud
 ```http
-POST /user
+POST /user/{id}
 Content-Type: application/json
 
 {

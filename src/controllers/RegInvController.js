@@ -137,6 +137,31 @@ class RegInvController
         }
     }
 
+    /**
+ * Recibe una petición para eliminar un recurso:
+ * 
+ * ```http
+ *   DELETE /user/{id}
+ *   Accept: application/json
+ * ```
+ */
+static async itemDelete(req, res) {
+    try {
+        const id = req.params.id;
+
+        const result = await RegInvModel.eliminar(id);
+
+        if (result === 0) {
+            res.status(404).send({ errno: 404, error: 'Not found' });
+        } else {
+            res.send({ message: 'Deleted successfully' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(400).send({ errno: 400, error: 'Bad Request' });
+    }
+}
+
 }
 
 module.exports = RegInvController;

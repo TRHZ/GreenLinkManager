@@ -1,5 +1,4 @@
 
-
 const ProductModel = require('../models/product');
 
 class ProductController
@@ -119,6 +118,24 @@ class ProductController
             res.status(400).send({ errno: 400, error: 'Bad Request' });
         }
     }
+
+    static async itemDelete(req, res) {
+    try {
+        const id = req.params.id;
+
+        const result = await ProductModel.eliminar(id);
+
+        if (result === 0) {
+            res.status(404).send({ errno: 404, error: 'Not found' });
+        } else {
+            res.send({ message: 'Deleted successfully' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(400).send({ errno: 400, error: 'Bad Request' });
+    }
+}
+    
 }
 
 module.exports = ProductController;

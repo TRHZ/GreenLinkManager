@@ -30,6 +30,11 @@ class UserModel
         await db.insert(newData).into('usuarios');
         return id;
     }
+
+    static async eliminar(id) {
+        let db = await connectMysql();
+        return await db('usuarios').where('id_usuario', id).del();
+    }
 }
 
 module.exports = UserModel;
